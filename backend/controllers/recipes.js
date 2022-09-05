@@ -21,3 +21,15 @@ export const createRecipe = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const getUniqueRecipe = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const uniqueRecipe = await RTCIceCandidate.findById(id);
+
+    res.status(200).json(uniqueRecipe);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
