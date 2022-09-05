@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
 import { useSelector } from "react-redux";
+import RecipeCard from "../components/RecipeCard";
 
 function Home() {
   const recipes = useSelector((state) => state.recipes);
@@ -12,7 +13,11 @@ function Home() {
         <h1 className="font-bold text-3xl">Here are your yummy recipes!</h1>
         <Button>Add Recipe</Button>
       </div>
-      <div></div>
+      <div className="py-11 px-7">
+        {recipes.map((recipe) => (
+          <RecipeCard name={recipe.name} description={recipe.description} />
+        ))}
+      </div>
     </main>
   );
 }
