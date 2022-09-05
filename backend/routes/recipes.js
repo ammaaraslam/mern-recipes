@@ -5,6 +5,6 @@ import { getAllRecipes, createRecipe } from "../controllers/recipes.js";
 const router = express.Router();
 
 router.get("/", getAllRecipes);
-router.post("/:id", createRecipe);
+router.post("/", createRecipe);
 
 export default router;

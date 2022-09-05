@@ -10,6 +10,14 @@ export const getAllRecipes = async (req, res) => {
   }
 };
 
-export const createRecipe = (req, res) => {
-  res.send("Post Recipe");
+export const createRecipe = async (req, res) => {
+  const body = req.body;
+  const newRecipe = new Recipe(body);
+
+  try {
+    await newRecipe.save();
+    res.status(201).json(newRecipe);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
