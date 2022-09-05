@@ -33,3 +33,11 @@ export const getUniqueRecipe = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
+
+export const deleteRecipe = async (req, res) => {
+  const { id } = req.params;
+
+  await Recipe.findByIdAndRemove(id);
+
+  res.json({ message: "Successfully deleted" });
+};
