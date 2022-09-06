@@ -1,6 +1,6 @@
 import React from "react";
 
-function IngredientsInput({ingredients, setIngredients}) {
+function IngredientsInput({ ingredients, setIngredients }) {
   function handleKeyDown(e) {
     if (e.key !== "Enter") return;
     const value = e.target.value;

@@ -6,6 +6,10 @@ import { addRecipe, updateRecipe } from "../actions/recipes";
 import { useNavigate } from "react-router-dom";
 
 function Form({ props }) {
+  const [recipeName, setRecipeName] = useState("");
+  const [recipeDesciption, setRecipeDesciption] = useState("");
+  const [recipeIngredients, setRecipeIngredients] = useState([]);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const recipe = useSelector((state) =>
@@ -16,21 +20,22 @@ function Form({ props }) {
 
   useEffect(() => {
     if (recipe) {
-      props.setRecipeName(recipe.name);
-      props.setRecipeDesciption(recipe.description);
-      props.setRecipeIngredients(recipe.ingredients);
+      setRecipeName(recipe.name);
+      setRecipeDesciption(recipe.description);
+      setRecipeIngredients(recipe.ingredients);
     }
   }, [props, recipe]);
 
-  const body = {
-    name: props.recipeName,
-    description: props.recipeDesciption,
-    ingredients: props.recipeIngredients,
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (props.currentId === 0) {
+
+    const body = {
+      name: recipeName,
+      description: recipeDesciption,
+      ingredients: recipeIngredients,
+    };
+
+    if (props.currentId) {
       dispatch(updateRecipe(props.currentId, body));
       navigate("/");
       props.setCurrentId(null);
@@ -48,11 +53,10 @@ function Form({ props }) {
             Give your recipe a name *
           </label>
           <input
-            onChange={(e) => props.setRecipeName(e.target.value)}
+            value={recipeName}
+            onChange={(e) => setRecipeName(e.target.value)}
             className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
             type="text"
-            value={props.recipeName}
-            required
           />
         </div>
         <div className="w-full  px-2 py-2 text-lg">
@@ -60,10 +64,9 @@ function Form({ props }) {
             Describe your recipe *
           </label>
           <textarea
+            value={recipeDesciption}
             className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
-            onChange={(e) => props.setRecipeDesciption(e.target.value)}
-            value={props.recipeDesciption}
-            required
+            onChange={(e) => setRecipeDesciption(e.target.value)}
             name="descripotion"
             rows="4"
             cols="50"
@@ -80,13 +83,13 @@ function Form({ props }) {
                   required
                 /> */}
           <IngredientsInput
-            ingredients={props.recipeIngredients}
-            setIngredients={props.setRecipeIngredients}
+            ingredients={recipeIngredients}
+            setIngredients={setRecipeIngredients}
           />
         </div>
 
         <Button type="submit" handleOnClick={handleSubmit}>
-          Add Recipe{" "}
+          {props.currentId ? "Edit Recipe" : "Add Recipe"}
         </Button>
         {/* <div className="text-center">
                 {addingResource && (

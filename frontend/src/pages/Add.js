@@ -2,19 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Form from "../components/Form";
 
-function Add() {
-  const [recipeName, setRecipeName] = useState("");
-  const [recipeDesciption, setRecipeDesciption] = useState("Article");
-  const [recipeIngredients, setRecipeIngredients] = useState([]);
-
+function Add({ currentId, setCurrentId }) {
   const props = {
-    recipeName,
-    setRecipeName,
-    recipeDesciption,
-    setRecipeDesciption,
-    recipeIngredients,
-    setRecipeIngredients,
+    currentId,
+    setCurrentId,
   };
+
   return (
     <main className="w-full md:h-screen h-fit bg-white">
       <div className="pt-28 md:px-16 md:pb-0 pb-4 px-8 text-center">

@@ -3,17 +3,7 @@ import { useState } from "react";
 import Form from "../components/Form";
 
 function Edit({ currentId, setCurrentId }) {
-  const [recipeName, setRecipeName] = useState("");
-  const [recipeDesciption, setRecipeDesciption] = useState("");
-  const [recipeIngredients, setRecipeIngredients] = useState([]);
-
   const props = {
-    recipeName,
-    setRecipeName,
-    recipeDesciption,
-    setRecipeDesciption,
-    recipeIngredients,
-    setRecipeIngredients,
     currentId,
     setCurrentId,
   };
@@ -21,7 +11,7 @@ function Edit({ currentId, setCurrentId }) {
     <main className="w-full md:h-screen h-fit bg-white">
       <div className="pt-28 md:px-16 md:pb-0 pb-4 px-8 text-center">
         <h1 className="font-montserrat md:text-6xl text-4xl font-extrabold capitalize md:max-w-4xl ml-auto mr-auto leading-none tracking-wider">
-          Add a new recipe
+          Edit recipe
         </h1>
         <div>
           <Form props={props} />
