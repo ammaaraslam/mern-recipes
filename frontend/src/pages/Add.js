@@ -9,11 +9,15 @@ function Add({ currentId, setCurrentId }) {
   };
 
   return (
-    <main className="w-full md:h-screen h-fit bg-white">
-      <div className="pt-28 md:px-16 md:pb-0 pb-4 px-8 text-center">
-        <h1 className="font-montserrat md:text-6xl text-4xl font-extrabold capitalize md:max-w-4xl ml-auto mr-auto leading-none tracking-wider">
+    <main className="w-full md:h-screen h-fit bg-mid">
+      <div className="pt-32 px-16 pb-8 text-center">
+        <h1 className="font-lato text-6xl font-extrabold capitalize ml-auto mr-auto leading-none tracking-wider">
           Add a new recipe
         </h1>
+        <p className="mt-3 mx-auto font-inter text-3xl max-w-2xl">
+          What are you waiting for? Go ahead and add a new delicous recipe to
+          your collection.
+        </p>
         <div>
           <Form props={props} />
         </div>
