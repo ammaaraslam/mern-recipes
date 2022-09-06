@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../components/Button";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import RecipeCard from "../components/RecipeCard";
 import { useNavigate } from "react-router-dom";
 import { CgSpinner } from "react-icons/cg";
+import { getRecipes } from "../actions/recipes";
 
 function Home({ currentId, setCurrentId }) {
   const recipes = useSelector((state) => state.recipes);
   const navigate = useNavigate();
   console.log(recipes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRecipes());
+  }, [dispatch]);
 
   return (
     <main className="w-full h-full px-16 py-20">

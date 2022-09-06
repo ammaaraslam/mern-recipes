@@ -6,24 +6,21 @@ import { useDispatch } from "react-redux";
 import React, { useEffect, useState } from "react";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit";
+import Recipe from "./pages/Recipe";
 function App() {
   const [currentId, setCurrentId] = useState(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getRecipes());
-  }, [dispatch]);
 
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route
+          exact
           path="/"
           element={<Home currentId={currentId} setCurrentId={setCurrentId} />}
-        >
-          <Route exact path=":id" element={<Home />} />
-        </Route>
+        />
+        <Route exact path="/:id" element={<Recipe />} />
+
         <Route path="/add" element={<Add />} />
         <Route
           path="/edit"

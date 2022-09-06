@@ -18,6 +18,15 @@ export const addRecipe = (recipe) => async (dispatch) => {
   }
 };
 
+export const getUniqueRecipe = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchUniqueRecipe(id);
+    dispatch({ type: "UNIQUE_RECIPE", payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const updateRecipe = (id, recipe) => async (dispatch) => {
   try {
     const { data } = await api.updateRecipe(id, recipe);

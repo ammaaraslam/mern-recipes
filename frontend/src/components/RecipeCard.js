@@ -10,7 +10,7 @@ function RecipeCard({ name, description, id, setCurrentId }) {
         <CardActionMenu id={id} setCurrentId={setCurrentId} />
       </div>
       <Link
-        to="/"
+        to={`/${id}`}
         className="font-semibold text-2xl underline decoration-orange-500 hover:underline-offset-1 text-black hover:text-orange-500 transition-all duration-150"
       >
         {name}
@@ -20,7 +20,7 @@ function RecipeCard({ name, description, id, setCurrentId }) {
       </p>
       <Link
         className="absolute inline-flex items-center justify-center font-semibold right-4 bottom-3 text-base text-gray-600 hover:text-black"
-        to="/"
+        to={`/${id}`}
       >
         View Recipe
         <BsArrowRightShort className="my-auto" size={25} />
