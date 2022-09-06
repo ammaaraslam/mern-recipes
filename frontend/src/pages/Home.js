@@ -17,7 +17,7 @@ function Home({ currentId, setCurrentId }) {
   }, [dispatch]);
 
   return (
-    <main className="w-full h-full px-16 py-20">
+    <main className="w-full h-full px-16 py-20 bg-light">
       <div className="w-full inline-flex justify-between">
         <h1 className="font-bold text-3xl">Here are your yummy recipes!</h1>
         <Button handleOnClick={() => navigate("/add")}>Add Recipe</Button>
