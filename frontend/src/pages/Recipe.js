@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUniqueRecipe } from "../actions/recipes";
 import { useParams } from "react-router-dom";
-import { CgSpinner } from "react-icons/cg";
+import { IoFastFoodOutline } from "react-icons/io5";
 
 function Recipe() {
   const id = useParams();
@@ -26,7 +26,7 @@ function Recipe() {
         </>
       ) : (
         <div className="flex mt-36 justify-center items-center">
-          <CgSpinner className="animate-spin" size={50} />
+          <IoFastFoodOutline className="animate-pulse" size={60} />
         </div>
       )}
     </main>

@@ -4,7 +4,6 @@ import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addRecipe, updateRecipe } from "../actions/recipes";
 import { useNavigate } from "react-router-dom";
-import { IoFastFoodSharp } from "react-icons/io5";
 
 function Form({ props }) {
   const [recipeName, setRecipeName] = useState("");
@@ -94,8 +93,7 @@ function Form({ props }) {
         </div>
         <div className="flex items-center justify-center">
           <Button type="submit" handleOnClick={handleSubmit}>
-            {props.currentId ? "Edit Recipe" : "Add Recipe"}{" "}
-            <IoFastFoodSharp className="ml-1 group-hover:animate-bounce" />
+            {props.currentId ? "Save Recipe" : "Add Recipe"}
           </Button>
         </div>
         {/* <div className="text-center">

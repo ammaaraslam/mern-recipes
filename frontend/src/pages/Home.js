@@ -3,7 +3,7 @@ import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import RecipeCard from "../components/RecipeCard";
 import { useNavigate } from "react-router-dom";
-import { CgSpinner } from "react-icons/cg";
+import { IoFastFoodOutline } from "react-icons/io5";
 import { getRecipes } from "../actions/recipes";
 
 function Home({ currentId, setCurrentId }) {
@@ -26,11 +26,11 @@ function Home({ currentId, setCurrentId }) {
             Have fun creating and enjoying your yummy recipes!
           </h1>
           <Button handleOnClick={() => navigate("/add")}>
-            Add A New Recipe
+            Add A New Recipe +
           </Button>
         </div>
         <p className="font-inter text-xl mt-2">
-          You currently have {numberOfRecipes} recipes in total.
+          You currently have {numberOfRecipes} recipe(s) in total.
         </p>
       </div>
       {recipes.length ? (
@@ -46,7 +46,7 @@ function Home({ currentId, setCurrentId }) {
         </div>
       ) : (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
-          <CgSpinner className="animate-spin" size={40} />
+          <IoFastFoodOutline className="animate-pulse" size={60} />
         </div>
       )}
     </main>
