@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addRecipe } from "../actions/recipes";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import IngredientsInput from "../components/IngredientsInput";
 
 function Add() {
   const dispatch = useDispatch();
@@ -12,19 +13,25 @@ function Add() {
   const [recipeName, setRecipeName] = useState("");
   const [recipeDesciption, setRecipeDesciption] = useState("Article");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
-  const [addingResource, setAddingResource] = useState(false);
+  const [addingRcipe, setAddingRcipe] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setAddingResource(true);
-
-    const body = {
-      name: recipeName,
-      description: recipeDesciption,
-      ingredients: recipeIngredients,
-    };
-    dispatch(addRecipe(body));
-    navigate("/");
+    if (e.key === "Enter") e.preventDefault();
+    try {
+      setAddingRcipe(true);
+      const body = {
+        name: recipeName,
+        description: recipeDesciption,
+        ingredients: recipeIngredients,
+      };
+      dispatch(addRecipe(body));
+      navigate("/");
+      setAddingRcipe(false);
+    } catch (error) {
+      setAddingRcipe(false);
+      console.log(error.message);
+    }
   };
   return (
     <main className="w-full md:h-screen h-fit bg-white">
@@ -34,10 +41,7 @@ function Add() {
         </h1>
         <div>
           <div className="font-montserrat mt-5">
-            <form
-              className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-gray-400"
-              onSubmit={handleSubmit}
-            >
+            <form className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-gray-400">
               <div className="w-full px-2 py-3 text-lg">
                 <label className="block mb-1" htmlFor="formGridCode_name">
                   Give your recipe a name *
@@ -63,7 +67,7 @@ function Add() {
                 />
               </div>
               <div className="w-full px-2 py-3 text-lg">
-                <label className="block mb-1" htmlFor="formGridCode_name">
+                {/* <label className="block mb-1" htmlFor="formGridCode_name">
                   Add the ingredients used in your recipe *
                 </label>
                 <input
@@ -71,9 +75,16 @@ function Add() {
                   className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
                   type="text"
                   required
+                /> */}
+                <IngredientsInput
+                  ingredients={recipeIngredients}
+                  setIngredients={setRecipeIngredients}
                 />
               </div>
-              <Button handleOnClick={handleSubmit}>Add Recipe</Button>
+
+              <Button type="submit" handleOnClick={handleSubmit}>
+                Add Recipe{" "}
+              </Button>
               {/* <div className="text-center">
                 {addingResource && (
                   <OutlinedButton type="submit">
