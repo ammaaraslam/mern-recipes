@@ -4,7 +4,7 @@ function Button({ children, handleOnClick }) {
   return (
     <button
       onClick={handleOnClick}
-      className="py-2 px-4 font-semibold bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all duration-200 ease-in-out"
+      className="py-2 px-3 font-inter font-semibold tracking-wider border-2 border-primary text-primary rounded-xl hover:bg-primary hover:text-light transition-all duration-150 ease-in-out"
     >
       {children}
     </button>
