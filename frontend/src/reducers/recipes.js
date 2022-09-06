@@ -7,7 +7,7 @@ const reducer = (recipes = [], action) => {
     case "UPDATE":
       return recipes;
     case "DELETE":
-      return recipes;
+      return recipes.filter((recipe) => recipe.id !== action.payload);
     default:
       return recipes;
   }

@@ -19,7 +19,11 @@ function Home() {
       {recipes.length ? (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
           {recipes.map((recipe) => (
-            <RecipeCard name={recipe.name} description={recipe.description} />
+            <RecipeCard
+              name={recipe.name}
+              description={recipe.description}
+              id={recipe._id}
+            />
           ))}
         </div>
       ) : (
