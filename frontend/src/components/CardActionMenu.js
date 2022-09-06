@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { BsTrash, BsPencilSquare, BsThreeDots } from "react-icons/bs";
+import { BsTrashFill, BsPencilSquare, BsThreeDots } from "react-icons/bs";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -43,30 +43,30 @@ function CardActionMenu({ id, setCurrentId }) {
     <div className="relative">
       <button
         onClick={() => setOpenMenu(true)}
-        className="rounded-full hover:bg-gray-300 p-1"
+        className="rounded-full hover:bg-light hover:text-primary p-1 transition-all duration-150"
       >
         <BsThreeDots size={25} />
       </button>
       {openMenu && (
         <div
           ref={ref}
-          className="grid bg-gray-300 rounded-xl absolute right-0  text-sm"
+          className="grid bg-light border-2 rounded-xl font-inter font-semibold absolute right-0 text-sm text-dark"
         >
           <button
             onClick={() => {
               setCurrentId(id);
               navigate("/edit");
             }}
-            className="pr-14 pl-2 py-2 text-left hover:bg-gray-400 rounded-t-lg transition-all duration-200"
+            className="pr-[4.4rem] pl-2 py-2 text-left rounded-t-lg hover:bg-mid border-b-2 transition-all duration-200 inline-flex justify-center items-center"
           >
             <BsPencilSquare className="mr-2" />
             Edit
           </button>
           <button
             onClick={handleDelete}
-            className="pr-14 pl-2 py-2 text-left hover:bg-red-500 rounded-b-lg transition-all duration-200"
+            className="pr-14 pl-2 py-2 text-left rounded-b-lg hover:bg-red transition-all duration-200 inline-flex justify-center items-center"
           >
-            <BsTrash className="mr-2" />
+            <BsTrashFill className="mr-2" />
             Delete
           </button>
         </div>

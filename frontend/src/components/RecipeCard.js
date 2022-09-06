@@ -5,13 +5,13 @@ import CardActionMenu from "./CardActionMenu";
 
 function RecipeCard({ name, description, id, setCurrentId }) {
   return (
-    <div className="relative w-64 h-64 border-2 rounded-2xl p-3 bg-gray-100 hover:bg-gray-200 hover:scale-105 transition-all duration-150">
+    <div className="relative w-64 h-64 border-2 rounded-2xl p-3 border-dark bg-primary hover:scale-105 transition-all duration-150 text-light">
       <div className="flex justify-end">
         <CardActionMenu id={id} setCurrentId={setCurrentId} />
       </div>
       <Link
         to={`/${id}`}
-        className="font-semibold text-2xl underline decoration-orange-500 hover:underline-offset-1 text-black hover:text-orange-500 transition-all duration-150"
+        className="font-semibold text-2xl underline decoration-dark hover:underline-offset-1 hover:text-dark transition-all duration-150"
       >
         {name}
       </Link>
@@ -19,7 +19,7 @@ function RecipeCard({ name, description, id, setCurrentId }) {
         {description}
       </p>
       <Link
-        className="absolute inline-flex items-center justify-center font-semibold right-4 bottom-3 text-base text-gray-600 hover:text-black"
+        className="absolute inline-flex items-center justify-center font-semibold right-4 bottom-3 text-base hover:text-dark"
         to={`/${id}`}
       >
         View Recipe
