@@ -13,7 +13,7 @@ function Home() {
         <h1 className="font-bold text-3xl">Here are your yummy recipes!</h1>
         <Button>Add Recipe</Button>
       </div>
-      <div className="py-11 px-7">
+      <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
         {recipes.map((recipe) => (
           <RecipeCard name={recipe.name} description={recipe.description} />
         ))}
