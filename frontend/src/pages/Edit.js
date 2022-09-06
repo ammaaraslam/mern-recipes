@@ -8,11 +8,14 @@ function Edit({ currentId, setCurrentId }) {
     setCurrentId,
   };
   return (
-    <main className="w-full md:h-screen h-fit bg-white">
-      <div className="pt-28 md:px-16 md:pb-0 pb-4 px-8 text-center">
-        <h1 className="font-montserrat md:text-6xl text-4xl font-extrabold capitalize md:max-w-4xl ml-auto mr-auto leading-none tracking-wider">
-          Edit recipe
+    <main className="w-full md:h-screen h-fit bg-mid">
+      <div className="pt-32 px-16 pb-8 text-center">
+        <h1 className="font-lato text-6xl font-extrabold capitalize ml-auto mr-auto leading-none tracking-wider">
+          Edit Recipe
         </h1>
+        <p className="mt-3 mx-auto font-inter text-3xl max-w-2xl">
+          Changed your mind? Edit your recipe details.
+        </p>
         <div>
           <Form props={props} />
         </div>
