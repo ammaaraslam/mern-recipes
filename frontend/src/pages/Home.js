@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { useSelector } from "react-redux";
 import RecipeCard from "../components/RecipeCard";
 import { useNavigate } from "react-router-dom";
+import { CgSpinner } from "react-icons/cg";
 
 function Home() {
   const recipes = useSelector((state) => state.recipes);
@@ -15,11 +16,17 @@ function Home() {
         <h1 className="font-bold text-3xl">Here are your yummy recipes!</h1>
         <Button handleOnClick={() => navigate("/add")}>Add Recipe</Button>
       </div>
-      <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
-        {recipes.map((recipe) => (
-          <RecipeCard name={recipe.name} description={recipe.description} />
-        ))}
-      </div>
+      {recipes.length ? (
+        <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
+          {recipes.map((recipe) => (
+            <RecipeCard name={recipe.name} description={recipe.description} />
+          ))}
+        </div>
+      ) : (
+        <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
+          <CgSpinner className="animate-spin" size={40} />
+        </div>
+      )}
     </main>
   );
 }
