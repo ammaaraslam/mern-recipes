@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { getRecipes } from "./actions/recipes";
 import { useDispatch } from "react-redux";
 import React, { useEffect } from "react";
+import Add from "./pages/Add";
 function App() {
   const dispatch = useDispatch();
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />}>
           <Route exact path=":id" element={<Home />} />
         </Route>
+        <Route path="/add" element={<Add />} />
       </Routes>
     </BrowserRouter>
   );
