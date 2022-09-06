@@ -12,15 +12,26 @@ function Home({ currentId, setCurrentId }) {
   console.log(recipes);
   const dispatch = useDispatch();
 
+  const numberOfRecipes = recipes.length;
+
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
 
   return (
-    <main className="w-full h-full px-16 py-20 bg-light">
-      <div className="w-full inline-flex justify-between">
-        <h1 className="font-bold text-3xl">Here are your yummy recipes!</h1>
-        <Button handleOnClick={() => navigate("/add")}>Add Recipe</Button>
+    <main className="w-full h-full py-16 bg-light">
+      <div className="w-full py-24 px-12 bg-mid">
+        <div className="w-full inline-flex justify-between items-center">
+          <h1 className="font-lato font-bold text-4xl max-w-xl">
+            Have fun creating and enjoying your yummy recipes!
+          </h1>
+          <Button handleOnClick={() => navigate("/add")}>
+            Add A New Recipe
+          </Button>
+        </div>
+        <p className="font-inter text-xl mt-2">
+          You currently have {numberOfRecipes} recipes in total.
+        </p>
       </div>
       {recipes.length ? (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
