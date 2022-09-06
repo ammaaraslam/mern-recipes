@@ -2,7 +2,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    fontFamily: {
+      inter: ["Inter", "sans-serif"],
+      lato: ["Lato", "sans-serif"],
+    },
   },
   plugins: [require("@tailwindcss/line-clamp")],
 };

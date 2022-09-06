@@ -8,8 +8,10 @@ function Navbar() {
   };
 
   return (
-    <header className="w-full px-6 py-2 bg-orange-400 flex items-center justify-between">
-      <Link to="/">Mern Recipes</Link>
+    <header className="fixed z-50 w-full px-6 py-4 bg-orange-400 flex items-center justify-between">
+      <Link className="font-lato font-extrabold text-2xl uppercase" to="/">
+        Mern Recipes
+      </Link>
       <div>
         <Button handleOnClick={refreshPage}>Refresh Page</Button>
       </div>
