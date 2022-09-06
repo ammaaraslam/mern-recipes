@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
+import { BiRefresh } from "react-icons/bi";
 
 function Navbar() {
   const refreshPage = () => {
@@ -17,7 +18,13 @@ function Navbar() {
         <span className="text-light">R</span>ecipes
       </Link>
       <div>
-        <Button handleOnClick={refreshPage}>Refresh Page</Button>
+        <Button handleOnClick={refreshPage}>
+          Refresh Page{" "}
+          <BiRefresh
+            className="ml-1 group-hover:rotate-180 transition-transform duration-200"
+            size={25}
+          />
+        </Button>
       </div>
     </header>
   );
