@@ -1,4 +1,5 @@
 import React from "react";
+import { IoCloseSharp } from "react-icons/io5";
 
 function IngredientsInput({ ingredients, setIngredients }) {
   function handleKeyDown(e) {
@@ -18,23 +19,26 @@ function IngredientsInput({ ingredients, setIngredients }) {
   console.log(ingredients);
 
   return (
-    <form className="border p-1 rounded-lg flex items-center flex-wrap gap-2">
+    <form className="border-2 border-mid p-2 rounded-lg flex items-center flex-wrap gap-2">
       {ingredients.map((tag, index) => (
-        <div className="bg-gray-300 inline-block p-1" key={index}>
-          <span className="text">{tag}</span>
-          <span
-            className="bg-gray-600 inline-flex justify-center items-center ml-2 cursor-pointer"
+        <div
+          className="bg-mid inline-flex justify-between items-center p-1 rounded-lg text-base"
+          key={index}
+        >
+          <span>{tag}</span>
+          <button
+            className="bg-primary text-mid inline-flex justify-center items-center ml-1 rounded-lg cursor-pointer p-1"
             onClick={() => removeTag(index)}
           >
-            &times;
-          </span>
+            <IoCloseSharp />
+          </button>
         </div>
       ))}
       <input
         onKeyDown={handleKeyDown}
         type="text"
-        className="flex-grow p-1"
-        placeholder="Type somthing"
+        className="flex-grow p-1 border-2 border-mid rounded-lg"
+        placeholder="Add new ingredient"
       />
     </form>
   );

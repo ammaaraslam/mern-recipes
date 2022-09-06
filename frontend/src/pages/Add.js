@@ -9,8 +9,8 @@ function Add({ currentId, setCurrentId }) {
   };
 
   return (
-    <main className="w-full md:h-screen h-fit bg-mid">
-      <div className="pt-32 px-16 pb-8 text-center">
+    <main className="w-full h-fit bg-mid">
+      <div className="pt-28 px-16 pb-8 text-center">
         <h1 className="font-lato text-6xl font-extrabold capitalize ml-auto mr-auto leading-none tracking-wider">
           Add a new recipe
         </h1>

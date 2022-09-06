@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addRecipe, updateRecipe } from "../actions/recipes";
 import { useNavigate } from "react-router-dom";
+import { IoFastFoodSharp } from "react-icons/io5";
 
 function Form({ props }) {
   const [recipeName, setRecipeName] = useState("");
@@ -46,51 +47,57 @@ function Form({ props }) {
   };
 
   return (
-    <div className="font-montserrat mt-5">
-      <form className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-gray-400">
-        <div className="w-full px-2 py-3 text-lg">
-          <label className="block mb-1" htmlFor="formGridCode_name">
+    <div className="font-inter mt-5">
+      <form className="md:space-y-4 md:py-8 md:px-12 py-4 px-6 md:w-4/6 w-11/12 ml-auto mr-auto text-left rounded-3xl bg-light border-2 border-primary">
+        <div className="w-full px-2 py-2 text-lg">
+          <label
+            className="block mb-1 text-primary font-semibold"
+            htmlFor="formGridCode_name"
+          >
             Give your recipe a name *
           </label>
           <input
             value={recipeName}
             onChange={(e) => setRecipeName(e.target.value)}
-            className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
+            className="w-full h-10 px-3 text-lg border-2 border-mid rounded-lg "
             type="text"
           />
         </div>
         <div className="w-full  px-2 py-2 text-lg">
-          <label className="block mb-1" htmlFor="formGridCode_last">
+          <label
+            className="block mb-1 text-primary font-semibold"
+            htmlFor="formGridCode_last"
+          >
             Describe your recipe *
           </label>
           <textarea
             value={recipeDesciption}
-            className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
+            className="w-full px-3 text-lg border-2 border-mid rounded-lg"
             onChange={(e) => setRecipeDesciption(e.target.value)}
-            name="descripotion"
-            rows="4"
+            name="description"
+            rows="3"
             cols="50"
           />
         </div>
-        <div className="w-full px-2 py-3 text-lg">
-          {/* <label className="block mb-1" htmlFor="formGridCode_name">
-                  Add the ingredients used in your recipe *
-                </label>
-                <input
-                  onChange={(e) => setRecipeIngredients(e.target.value)}
-                  className="w-full h-10 px-3 text-lg border-2 border-gray-400 rounded-lg "
-                  type="text"
-                  required
-                /> */}
+        <div className="w-full px-2 py-2 text-lg">
+          <label
+            className="block mb-1 text-primary font-semibold"
+            htmlFor="formGridCode_last"
+          >
+            Add ingredients used in your recipe *
+          </label>
+
           <IngredientsInput
             ingredients={recipeIngredients}
             setIngredients={setRecipeIngredients}
           />
         </div>
-
-        <Button type="submit" handleOnClick={handleSubmit}>
-          {props.currentId ? "Edit Recipe" : "Add Recipe"}
-        </Button>
+        <div className="flex items-center justify-center">
+          <Button type="submit" handleOnClick={handleSubmit}>
+            {props.currentId ? "Edit Recipe" : "Add Recipe"}{" "}
+            <IoFastFoodSharp className="ml-1 group-hover:animate-bounce" />
+          </Button>
+        </div>
         {/* <div className="text-center">
                 {addingResource && (
                   <OutlinedButton type="submit">
