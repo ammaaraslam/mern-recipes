@@ -2,9 +2,9 @@ import React from "react";
 import { useState } from "react";
 import Form from "../components/Form";
 
-function Add() {
+function Edit({ currentId, setCurrentId }) {
   const [recipeName, setRecipeName] = useState("");
-  const [recipeDesciption, setRecipeDesciption] = useState("Article");
+  const [recipeDesciption, setRecipeDesciption] = useState("");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
 
   const props = {
@@ -14,6 +14,8 @@ function Add() {
     setRecipeDesciption,
     recipeIngredients,
     setRecipeIngredients,
+    currentId,
+    setCurrentId,
   };
   return (
     <main className="w-full md:h-screen h-fit bg-white">
@@ -37,4 +39,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default Edit;

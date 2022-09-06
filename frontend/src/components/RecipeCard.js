@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
 import CardActionMenu from "./CardActionMenu";
 
-function RecipeCard({ name, description, id }) {
+function RecipeCard({ name, description, id, setCurrentId }) {
   return (
     <div className="relative w-64 h-64 border-2 rounded-2xl p-3 bg-gray-100 hover:bg-gray-200 hover:scale-105 transition-all duration-150">
       <div className="flex justify-end">
-        <CardActionMenu id={id} />
+        <CardActionMenu id={id} setCurrentId={setCurrentId} />
       </div>
       <Link
         to="/"

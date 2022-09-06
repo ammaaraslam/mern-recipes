@@ -5,7 +5,9 @@ const reducer = (recipes = [], action) => {
     case "CREATE":
       return [...recipes, action.payload];
     case "UPDATE":
-      return recipes;
+      return recipes.map((recipe) =>
+        recipe._id === action.payload._id ? action.payload : recipe
+      );
     case "DELETE":
       return recipes.filter((recipe) => recipe.id !== action.payload);
     default:

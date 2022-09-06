@@ -5,7 +5,7 @@ import RecipeCard from "../components/RecipeCard";
 import { useNavigate } from "react-router-dom";
 import { CgSpinner } from "react-icons/cg";
 
-function Home() {
+function Home({ currentId, setCurrentId }) {
   const recipes = useSelector((state) => state.recipes);
   const navigate = useNavigate();
   console.log(recipes);
@@ -23,6 +23,7 @@ function Home() {
               name={recipe.name}
               description={recipe.description}
               id={recipe._id}
+              setCurrentId={setCurrentId}
             />
           ))}
         </div>
