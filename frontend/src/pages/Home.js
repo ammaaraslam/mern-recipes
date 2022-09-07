@@ -35,10 +35,11 @@ function Home({ currentId, setCurrentId }) {
       </div>
       {recipes.length ? (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
-          {recipes.map((recipe) => (
+          {recipes.reverse().map((recipe) => (
             <RecipeCard
               name={recipe.name}
               description={recipe.description}
+              ingredients={recipe.ingredients}
               id={recipe._id}
               setCurrentId={setCurrentId}
             />

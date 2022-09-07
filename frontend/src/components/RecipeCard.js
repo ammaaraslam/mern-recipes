@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";
 import CardActionMenu from "./CardActionMenu";
 
-function RecipeCard({ name, description, id, setCurrentId }) {
+function RecipeCard({ name, description, ingredients, id, setCurrentId }) {
   return (
     <div className="relative w-64 h-64 border-2 rounded-2xl p-3 border-dark bg-primary hover:scale-105 transition-all duration-150 text-light">
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center">
+        <span className="font-inter text-sm italic text-dark">
+          {ingredients.length} Ingredients
+        </span>
+
         <CardActionMenu id={id} setCurrentId={setCurrentId} />
       </div>
       <Link
