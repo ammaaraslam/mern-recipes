@@ -7,11 +7,11 @@ import { IoFastFoodOutline } from "react-icons/io5";
 import { getRecipes } from "../actions/recipes";
 
 function Home({ currentId, setCurrentId }) {
-  const recipes = useSelector((state) => state.recipes);
+  const recipes = useSelector((state) => state.recipes.reverse());
   const navigate = useNavigate();
   console.log(recipes);
   const dispatch = useDispatch();
-
+  const reversedRecipes = recipes.reverse();
   const numberOfRecipes = recipes.length;
 
   useEffect(() => {
@@ -33,9 +33,9 @@ function Home({ currentId, setCurrentId }) {
           You currently have {numberOfRecipes} recipe(s) in total.
         </p>
       </div>
-      {recipes.length ? (
+      {reversedRecipes.length ? (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
-          {recipes.reverse().map((recipe) => (
+          {reversedRecipes.map((recipe) => (
             <RecipeCard
               name={recipe.name}
               description={recipe.description}
