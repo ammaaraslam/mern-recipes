@@ -23,7 +23,7 @@ backend
 
 To start a local development of the backend the application, follow the following steps:
 
-1. Fork https://github.com/ammaaraslam/mern-recipes.git.
+1. Fork [this repository](https://github.com/ammaaraslam/mern-recipes.git).
 2. Clone the forked repository
 ```sh
 git clone https://github.com/yourusername/mern-recipes.git
