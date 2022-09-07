@@ -13,8 +13,8 @@ function CardActionMenu({ id, setCurrentId }) {
   const navigate = useNavigate();
 
   const handleEdit = async (e) => {
-    navigate("/edit");
     setCurrentId(id);
+    navigate("/edit");
   };
 
   const handleDelete = async (e) => {
@@ -53,10 +53,7 @@ function CardActionMenu({ id, setCurrentId }) {
           className="grid bg-light border-2 rounded-xl font-inter font-semibold absolute right-0 text-sm text-dark"
         >
           <button
-            onClick={() => {
-              setCurrentId(id);
-              navigate("/edit");
-            }}
+            onClick={handleEdit}
             className="pr-[4.4rem] pl-2 py-2 text-left rounded-t-lg hover:bg-mid border-b-2 transition-all duration-200 inline-flex justify-center items-center"
           >
             <BsPencilSquare className="mr-2" />

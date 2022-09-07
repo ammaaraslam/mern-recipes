@@ -1,9 +1,7 @@
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import { getRecipes } from "./actions/recipes";
-import { useDispatch } from "react-redux";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit";
 import Recipe from "./pages/Recipe";
