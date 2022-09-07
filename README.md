@@ -1,4 +1,4 @@
-# Mern Recipes
+# MERN RECIPES
 
 A Full-Stack web application with CRUD operations built with the MERN stack *(MongoDB, Express.js, React.js, Node.js)*. This is an application that is used to keep track of recipes by a user.
 
@@ -20,7 +20,7 @@ A Full-Stack web application with CRUD operations built with the MERN stack *(Mo
 
 To get started with the development of this application please follow the following steps:
 
-1. Fork this reopistory.
+1. Fork this repository.
 2. Clone the forked repository
 ```sh
 git clone https://github.com/yourusername/mern-recipes.git
