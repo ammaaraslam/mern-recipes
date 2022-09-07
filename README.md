@@ -6,7 +6,7 @@ A Full-Stack web application with CRUD operations built with the MERN stack *(Mo
 
 - **MongoDB** *(MongoDB Atlas)* - Database
 - **Express.js** - Used on top of Node.js for making it flexible and minimal.
-- React.**js** - Used for the UI/Frontend of the application.
+- **React.js** - Used for the UI/Frontend of the application.
 - **Node.js** - Used for the server/backend of the application.
 - **TailwindCSS** - Used for styling of the frontend.
 
@@ -20,7 +20,7 @@ A Full-Stack web application with CRUD operations built with the MERN stack *(Mo
 
 To get started with the development of this application please follow the following steps:
 
-1. Fork this repository.
+1. Fork [this repository](https://github.com/ammaaraslam/mern-recipes.git).
 2. Clone the forked repository
 ```sh
 git clone https://github.com/yourusername/mern-recipes.git
@@ -43,5 +43,5 @@ npm start
 ```
 
 > For more information on each directory please check out the following:
-> - **Backend** - 
-> - **Frontend** - 
+> - **Backend** - https://github.com/ammaaraslam/mern-recipes/tree/master/backend#readme
+> - **Frontend** - https://github.com/ammaaraslam/mern-recipes/tree/master/frontend#readme
