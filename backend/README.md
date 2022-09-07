@@ -36,8 +36,12 @@ cd mern-recipes/backend
 ```sh
 npm install
 ```
-5. Run the server.
+5. Create a `.env` file and add the following.
 ```
+CONNECTION_URL = mongodb+srv://dev_user:5qcRTbFsQqD7Kr5R@mern-recipes.hebkjba.mongodb.net/?retryWrites=true&w=majority
+```
+6. Run the server.
+```sh
 npm start
 ```
 > This will run the server in http://localhost:5000
