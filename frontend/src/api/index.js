@@ -1,5 +1,9 @@
+// This file contains all functions that make calls to the APi at specific endpoints for specific tasks.
+// Uses "axios" to fetch from the backend.
+
 import axios from "axios";
 
+// URL of the API, server.
 const url = "http://localhost:5000/api/recipes";
 
 export const fetchAllRecipes = () => axios.get(url);

@@ -1,3 +1,5 @@
+// This is the RecipeCard component used by the Home page for displaying the list of all recipes in the database.
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsArrowRightShort } from "react-icons/bs";

@@ -1,14 +1,17 @@
+// This is a separate component used by the Recipe page to display the list of ingredients as a checklist.
+
 import React, { useState } from "react";
 
 function IngredientsList({ ingredientsList }) {
   const [checked, setChecked] = useState([]);
 
-  const handleCheck = (event) => {
+  // Funciton that checks if an item(ingredient) is checked or not.
+  const handleCheck = (e) => {
     var updatedList = [...checked];
-    if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
+    if (e.target.checked) {
+      updatedList = [...checked, e.target.value];
     } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
+      updatedList.splice(checked.indexOf(e.target.value), 1);
     }
     setChecked(updatedList);
   };

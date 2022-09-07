@@ -1,3 +1,5 @@
+// This is a Form component reused by the Add & Edit pages for recieving input from the user.
+
 import React, { useEffect, useState } from "react";
 import IngredientsInput from "../components/IngredientsInput";
 import Button from "../components/Button";
@@ -6,19 +8,24 @@ import { addRecipe, updateRecipe } from "../actions/recipes";
 import { useNavigate } from "react-router-dom";
 
 function Form({ props }) {
+  // Setting state variables for each entity of a recipe.
   const [recipeName, setRecipeName] = useState("");
   const [recipeDesciption, setRecipeDesciption] = useState("");
   const [recipeIngredients, setRecipeIngredients] = useState([]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // Checking if a "currentId" is passed in to the Form and fetching the recipe that matches that id.
   const recipe = useSelector((state) =>
     props.currentId
       ? state.recipes.find((r) => r._id === props.currentId)
       : null
   );
 
+  // Logic to pre-fill the form if the Form is for editing an existing recipe.
   useEffect(() => {
+    // If a currentId is passed to this form, then setting the values of that recipe to the state variables.
     if (recipe) {
       setRecipeName(recipe.name);
       setRecipeDesciption(recipe.description);
@@ -26,20 +33,27 @@ function Form({ props }) {
     }
   }, [props, recipe]);
 
+  // Function perfomed when the submit button is clicked.
   const handleSubmit = async (e) => {
+    // Prevent page from reloading.
     e.preventDefault();
 
+    // Contains all the values set by the user in a format that is accepted by the server.
     const body = {
       name: recipeName,
       description: recipeDesciption,
       ingredients: recipeIngredients,
     };
 
+    // Since the submit button performs two functions, either adding a recipe or editing an exising recipe, the following logic checks if the form is for editing or adding new.
+
     if (props.currentId) {
+      // Task to perform if it is for editing
       dispatch(updateRecipe(props.currentId, body));
       navigate("/");
       props.setCurrentId(null);
     } else {
+      // Task to perform if it is for adding new.
       dispatch(addRecipe(body));
       navigate("/");
     }
@@ -99,17 +113,6 @@ function Form({ props }) {
             {props.currentId ? "Save Recipe" : "Add Recipe"}
           </Button>
         </div>
-        {/* <div className="text-center">
-                {addingResource && (
-                  <OutlinedButton type="submit">
-                    Adding Resource{" "}
-                    <CgSpinner className="ml-2 mt-auto mb-auto animate-spin" />
-                  </OutlinedButton>
-                )}
-                {!addingResource && (
-                  <OutlinedButton type="submit">Add Resource</OutlinedButton>
-                )}
-              </div> */}
       </form>
     </div>
   );

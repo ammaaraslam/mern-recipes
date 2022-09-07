@@ -1,9 +1,12 @@
+// This is the Navbar component used throughout the application on all pages.
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import { BiRefresh } from "react-icons/bi";
 
 function Navbar() {
+  // Funciton that refreshes the web page manually.
   const refreshPage = () => {
     window.location.reload();
   };

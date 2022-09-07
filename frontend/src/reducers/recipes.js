@@ -1,3 +1,5 @@
+// This is the reducer function used to handle states using redux and is used by all the functions that make the API request.
+
 const reducer = (recipes = [], action) => {
   switch (action.type) {
     case "FETCH_ALL":

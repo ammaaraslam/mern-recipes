@@ -1,7 +1,10 @@
+// This is a separate component used by the Form component to input ingredients in a user-friendly manner.
+
 import React from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
 function IngredientsInput({ ingredients, setIngredients }) {
+  // Function that checks if the "Enter" key is pressed to save the input to the list of ingredients.
   function handleKeyDown(e) {
     if (e.key !== "Enter") return;
     const value = e.target.value;
@@ -12,7 +15,8 @@ function IngredientsInput({ ingredients, setIngredients }) {
     e.target.value = "";
   }
 
-  function removeTag(index) {
+  // Function that removes an ingredient from the list, based on the index of it in the list.
+  function removeIngredient(index) {
     setIngredients(ingredients.filter((el, i) => i !== index));
   }
 
@@ -26,14 +30,16 @@ function IngredientsInput({ ingredients, setIngredients }) {
           key={index}
         >
           <span>{tag}</span>
+          {/* Button that removes an ingredient */}
           <button
             className="bg-primary text-mid inline-flex justify-center items-center ml-1 rounded-lg cursor-pointer p-1"
-            onClick={() => removeTag(index)}
+            onClick={() => removeIngredient(index)}
           >
             <IoCloseSharp />
           </button>
         </div>
       ))}
+      {/* Input that accepts new ingredients and adds them to the list of the Enter key is pressed, by calling the handleKeyDown function declared above. */}
       <input
         onKeyDown={handleKeyDown}
         type="text"

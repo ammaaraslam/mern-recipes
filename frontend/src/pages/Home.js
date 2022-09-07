@@ -1,3 +1,5 @@
+// This is the Home page of the application, contains the list of all the recipes displayed as a grid through the RecipeCard Component. The path of this page is "/"
+
 import React, { useEffect } from "react";
 import Button from "../components/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,14 +8,17 @@ import { useNavigate } from "react-router-dom";
 import { IoFastFoodOutline } from "react-icons/io5";
 import { getRecipes } from "../actions/recipes";
 
-function Home({ currentId, setCurrentId }) {
+function Home({ setCurrentId }) {
+  // Getting all the recipes from the backend(database).
   const recipes = useSelector((state) => state.recipes.reverse());
   const navigate = useNavigate();
   console.log(recipes);
   const dispatch = useDispatch();
+  // This holds the reversed array of the recipes array to display the recently added recipe first.
   const reversedRecipes = recipes.reverse();
   const numberOfRecipes = recipes.length;
 
+  // Logic that gets all the necessary data on every page load.
   useEffect(() => {
     dispatch(getRecipes());
   }, [dispatch]);
@@ -35,6 +40,7 @@ function Home({ currentId, setCurrentId }) {
       </div>
       {reversedRecipes.length ? (
         <div className="mx-auto py-14 px-7 flex flex-wrap gap-20 items-center justify-center">
+          {/* Using the .map() function to display all the recipes in the list as cards. This also contains a loading annimation that is displayed until the recipes data is fetched and made available. */}
           {reversedRecipes.map((recipe) => (
             <RecipeCard
               name={recipe.name}

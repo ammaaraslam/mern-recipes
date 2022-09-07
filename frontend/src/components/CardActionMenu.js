@@ -1,3 +1,5 @@
+// This is a separate component used by the RecipeCard component that contains buttons for editing and deleting a post.
+
 import React, { useState, useEffect, useRef } from "react";
 import { BsTrashFill, BsPencilSquare, BsThreeDots } from "react-icons/bs";
 
@@ -12,21 +14,26 @@ function CardActionMenu({ id, setCurrentId }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Function to perform if user clicks on the edit button.
   const handleEdit = async (e) => {
     setCurrentId(id);
     navigate("/edit");
   };
 
+  // Function to perform if user clicks on the delete button.
   const handleDelete = async (e) => {
+    // Getting confirmation from user through an alert.
     const userConfirm = window.confirm(
       "Are you sure you want to delete the recipe?"
     );
+    // Perform the deletion if user confirms.
     if (userConfirm) {
       dispatch(deleteRecipe(id));
       window.location.reload();
     }
   };
-  // Detect Outside Click
+
+  // Detect Outside Click. This checks for any outside click from the CardActionMenu component and closes it if it is.
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
       if ([openMenu] && ref.current && !ref.current.contains(e.target)) {
@@ -41,12 +48,15 @@ function CardActionMenu({ id, setCurrentId }) {
 
   return (
     <div className="relative">
+      {/* This is the button that controlls the toggling of the menu. This button is rendered irregardless of the state varibale or useEffect hook. */}
       <button
         onClick={() => setOpenMenu(true)}
         className="rounded-full hover:bg-light hover:text-primary p-1 transition-all duration-150"
       >
         <BsThreeDots size={25} />
       </button>
+
+      {/* Open the menu only if the "openMenu" state variable is set to true. */}
       {openMenu && (
         <div
           ref={ref}

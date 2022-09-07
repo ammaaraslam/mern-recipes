@@ -1,5 +1,8 @@
+// This file contains all the actions(functions) that need to be executed for specific tasks.
+
 import * as api from "../api";
 
+// Action for getting all recipes from the API.
 export const getRecipes = () => async (dispatch) => {
   try {
     const { data } = await api.fetchAllRecipes();
@@ -9,6 +12,7 @@ export const getRecipes = () => async (dispatch) => {
   }
 };
 
+// Action for adding a new recipe to the API.
 export const addRecipe = (recipe) => async (dispatch) => {
   try {
     const { data } = await api.addRecipe(recipe);
@@ -18,6 +22,7 @@ export const addRecipe = (recipe) => async (dispatch) => {
   }
 };
 
+// Action for getting a unique recipe from the API.
 export const getUniqueRecipe = (id) => async (dispatch) => {
   try {
     const { data } = await api.fetchUniqueRecipe(id);
@@ -27,6 +32,7 @@ export const getUniqueRecipe = (id) => async (dispatch) => {
   }
 };
 
+// Action for updating a recipe from the API with a unqiue "id"
 export const updateRecipe = (id, recipe) => async (dispatch) => {
   try {
     const { data } = await api.updateRecipe(id, recipe);
@@ -36,6 +42,7 @@ export const updateRecipe = (id, recipe) => async (dispatch) => {
   }
 };
 
+// Action for  deleting a recipe from the API with a unqiue "id"
 export const deleteRecipe = (id) => async (dispatch) => {
   try {
     await api.deleteRecipe(id);

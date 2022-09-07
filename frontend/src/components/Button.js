@@ -1,3 +1,5 @@
+// This is a reusable button component used throughout the frontend of the application.
+
 import React from "react";
 
 function Button({ children, handleOnClick }) {
