@@ -78,12 +78,15 @@ function Form({ props }) {
             cols="50"
           />
         </div>
-        <div className="w-full px-2 py-2 text-lg">
+        <div className="w-full px-2 py-2 mb-1 text-lg">
           <label
-            className="block mb-1 text-primary font-semibold"
+            className="block text-primary font-semibold"
             htmlFor="formGridCode_last"
           >
-            Add ingredients used in your recipe *
+            Add ingredients used in your recipe *<br></br>
+            <span className="text-sm italic">
+              (Type an ingredient and press enter to add to the list.)
+            </span>
           </label>
 
           <IngredientsInput
