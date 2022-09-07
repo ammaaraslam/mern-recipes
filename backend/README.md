@@ -40,4 +40,4 @@ npm install
 ```
 npm start
 ```
-> This will run the application in http://localhost:5000
+> This will run the server in http://localhost:5000
